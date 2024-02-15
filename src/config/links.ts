@@ -1,28 +1,47 @@
 import { type IconType } from 'react-icons'
-import { FaPen, FaUser, FaTableColumns } from 'react-icons/fa6'
+import {
+  FaPen,
+  FaUser,
+  FaTableColumns,
+  FaGithub,
+  FaSquareFacebook
+} from 'react-icons/fa6'
 
 interface Link {
-    name: string,
-    path: string,
-    icon: IconType
+  name: string
+  url: string
+  icon: IconType
 }
 
 const HeaderLinks: Link[] = [
-    {
-        name: 'Blog',
-        path: '/blog',
-        icon: FaPen
-    },
-    {
-        name: 'About',
-        path: '/about',
-        icon: FaUser
-    },
-    {
-        name: 'Projects',
-        path: '/projects',
-        icon: FaTableColumns
-    }
+  {
+    name: 'Blog',
+    url: '/blog',
+    icon: FaPen
+  },
+  {
+    name: 'About',
+    url: '/about',
+    icon: FaUser
+  },
+  {
+    name: 'Projects',
+    url: '/projects',
+    icon: FaTableColumns
+  }
 ]
 
-export { HeaderLinks }
+const FooterLinks: Link[] = [
+  {
+    name: 'GitHub',
+    url: 'https://github.com/Lefia',
+    icon: FaGithub
+  },
+  {
+    name: 'Facebook',
+    url: 'https://www.facebook.com/lefia1222/',
+    icon: FaSquareFacebook
+  }
+]
+
+export { HeaderLinks, FooterLinks }
