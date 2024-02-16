@@ -1,13 +1,14 @@
 import { getImage } from '@/lib/img'
 import Image from 'next/image'
 
-interface ImgProps {
-  src: string
-  alt: string
+type ImgProps = {
+  src: string,
+  alt: string,
+  className?: string
 }
 
 const Img = async (props: ImgProps) => {
-  const { src, alt } = props
+  const { src, alt, className } = props
   const { base64, height, width } = await getImage(src)
   return (
     <Image
@@ -17,6 +18,7 @@ const Img = async (props: ImgProps) => {
       width={width}
       placeholder='blur'
       blurDataURL={base64}
+      className={className}
     />
   )
 }
