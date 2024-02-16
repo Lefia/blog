@@ -2,8 +2,8 @@ import { FooterLinks } from '@/config/links'
 
 const Footer = () => {
   return (
-    <div className='container flex flex-col items-center space-y-2'>
-      <div className='flex items-center space-x-4'>
+    <div className='container flex flex-col items-center gap-2 py-4'>
+      <div className='flex items-center gap-4'>
         {FooterLinks.map((link, index) => (
             <a
               key={index}
