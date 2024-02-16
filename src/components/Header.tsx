@@ -10,7 +10,7 @@ const Header = () => {
         <div className='flex items-center gap-8'>
           <Link href='/' className='font-bold flex items-center gap-2 h-10 px-4 py-2'>
             <LuOrbit className='text-xl' />
-            <span className='text-lg'>Lefia's Blog</span>
+            <span className='text-lg'>Lefia&apos;s Blog</span>
           </Link>
           <Nav />
         </div>
