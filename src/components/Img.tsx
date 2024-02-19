@@ -23,4 +23,4 @@ const Img = async (props: ImgProps) => {
   )
 }
 
-export { Img }
+export default Img

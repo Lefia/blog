@@ -1,5 +1,5 @@
 import { ModeToggle } from '@/components/ModeToggle'
-import { Nav } from '@/components/Nav'
+import Nav from '@/components/Nav'
 import { LuOrbit } from "react-icons/lu";
 import Link from 'next/link'
 
@@ -20,4 +20,4 @@ const Header = () => {
   )
 }
 
-export { Header }
+export default Header

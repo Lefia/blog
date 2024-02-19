@@ -28,4 +28,5 @@ const Nav = () => {
     </NavigationMenu>
   )
 }
-export { Nav }
+
+export default Nav
