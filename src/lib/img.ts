@@ -1,22 +1,12 @@
-import fs from 'node:fs/promises'
-import path from 'node:path'
 import { getPlaiceholder } from 'plaiceholder'
 
-const publicDir = path.join(process.cwd(), 'public')
-
-export const getImage = async (src: string) => {
-    const buffer = await (async () => {
-        if (src.startsWith('http')) {
-            const res = await fetch(src)
-            return await Buffer.from(await res.arrayBuffer())
-        } else {
-            return await fs.readFile(`${publicDir}/${src}`)
-        }
-    })()
+export const getImage = async (imageUrl: string) => {
+    const url = imageUrl.startsWith('http') ? imageUrl : `http://localhost:3000${imageUrl}`
+    const res = await fetch(url)
+    const buffer = await res.arrayBuffer()
     const {
       base64,
       metadata: { height, width }
-    } = await getPlaiceholder(buffer)
+    } = await getPlaiceholder(Buffer.from(buffer))
     return { base64, height, width }
 }
-  
