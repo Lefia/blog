@@ -1,7 +1,8 @@
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/mdx'
+import { notFound } from 'next/navigation'
 import Img from '@/components/Img'
+import MDX from '@/components/MDX'
+import { MotionDiv } from '@/components/Motion'
 
 export async function generateStaticParams() {
   const posts = await getAllPosts()
@@ -22,9 +23,15 @@ const BlogPostPage = async (props: BlogPostProps) => {
 
   return (
     <>
-      <Img src={post.coverImage} alt={post.title} className='aspect-video rounded-lg object-cover object-top' />
+      <MotionDiv layout='preserve-aspect' layoutId={post.slug}>
+        <Img
+          src={post.coverImage}
+          alt={post.title}
+          className='aspect-video object-cover object-top rounded-lg'
+        />
+      </MotionDiv>
       <div className='prose dark:prose-invert mt-8'>
-        <MDXRemote source={post.content} />
+        <MDX source={post.content} />
       </div>
     </>
   )
