@@ -1,0 +1,50 @@
+// Shiki transformer styles
+
+pre .line.diff.add {
+    background-color: rgba(31, 122, 31, 0.3);
+    margin: 0 -1.1428571em;
+    padding: 0 1.1428571em;
+    width: calc(100% + 1.1428571em * 2);
+    display: inline-block;
+    position: relative;
+    &:before {
+        content: '+';
+        position: absolute;
+        left: 4px;
+    }
+}
+
+pre .line.diff.remove {
+    background-color: rgba(158, 5, 23, 0.3);
+    margin: 0 -1.1428571em;
+    padding: 0 1.1428571em;
+    width: calc(100% + 1.1428571em * 2);
+    display: inline-block;
+    position: relative;
+    &:before {
+        content: '-';
+        position: absolute;
+        left: 4px;
+    }
+}
+
+pre .highlighted {
+    background-color: rgba(255, 255, 255, 0.08);
+    margin: 0 -1.1428571em;
+    padding: 0 1.1428571em;
+    width: calc(100% + 1.1428571em * 2);
+    display: inline-block;
+}
+
+pre.has-focused:not(:hover) .line:not(.focused) {
+    filter: blur(.095rem);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+pre.has-focused:hover .line:not(.focused) {
+    filter: blur(0);
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
