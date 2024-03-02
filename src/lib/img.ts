@@ -1,6 +1,7 @@
 import { getPlaiceholder } from 'plaiceholder'
 
 export const getImage = async (imageUrl: string) => {
+    if (!imageUrl) throw new Error('No image URL provided')
     const url = imageUrl.startsWith('http') ? imageUrl : `http://localhost:3000${imageUrl}`
     const res = await fetch(url)
     const buffer = await res.arrayBuffer()

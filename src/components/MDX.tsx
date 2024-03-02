@@ -4,9 +4,10 @@ import rehypeShiki from '@shikijs/rehype'
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
-  transformerNotationFocus,
+  transformerNotationFocus
 } from '@shikijs/transformers'
 import '@/styles/mdx.scss'
+import Img from '@/components/Img'
 
 interface MDXProps {
   source: string
@@ -17,6 +18,14 @@ const MDX = (props: MDXProps) => {
   return (
     <MDXRemote
       source={source}
+      components={{
+        img: (props) => (
+          <Img
+            src={props.src ?? '/images/placeholder.jpg'}
+            alt={props.alt ?? 'Image'}
+          />
+        )
+      }}
       options={{
         mdxOptions: {
           remarkPlugins: [],
