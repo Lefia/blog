@@ -12,11 +12,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-export function ModeToggle() {
+interface ModeToggleProps {
+  className?: string
+}
+
+export function ModeToggle(props: ModeToggleProps) {
+  const { className } = props
   const { setTheme } = useTheme()
 
   return (
-    <DropdownMenu>
+    <div className={className}>
+      <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
           <FaSun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -36,5 +42,6 @@ export function ModeToggle() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+    </div>
   )
 }

@@ -10,9 +10,14 @@ import {
   navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu'
 
-const Nav = () => {
+interface NavProps {
+  className?: string
+}
+
+const Nav = (props: NavProps) => {
+  const { className } = props
   return (
-    <NavigationMenu>
+    <NavigationMenu className={className}>
       <NavigationMenuList>
         {HeaderLinks.map((link, index) => (
           <NavigationMenuItem key={index}>
@@ -24,7 +29,6 @@ const Nav = () => {
           </NavigationMenuItem>
         ))}
       </NavigationMenuList>
-
     </NavigationMenu>
   )
 }
