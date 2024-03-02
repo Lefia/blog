@@ -7,7 +7,6 @@ import {
 import Img from '@/components/Img'
 import Link from 'next/link'
 import { Post } from '@/lib/mdx'
-import { MotionDiv } from '@/components/Motion'
 
 type PostCardProps = {
   post: Post
@@ -19,16 +18,16 @@ export const PostCard = (props: PostCardProps) => {
   return (
     <Card>
       <Link href={`/blog/${post.slug}`}>
-        <MotionDiv layout='preserve-aspect' layoutId={post.slug}>
-          <Img
-            src={post.coverImage ?? '/images/placeholder.jpg'}
-            alt={post.title ?? 'No title'}
-            className='aspect-video object-cover object-center rounded-t-lg'
-          />
-        </MotionDiv>
+        <Img
+          src={post.coverImage ?? '/images/placeholder.jpg'}
+          alt={post.title ?? 'No title'}
+          className='aspect-video object-cover object-center rounded-t-lg'
+        />
         <CardHeader>
           <CardTitle>{post.title ?? 'No title'}</CardTitle>
-          <CardDescription>{post.description ?? 'No description'}</CardDescription>
+          <CardDescription>
+            {post.description ?? 'No description'}
+          </CardDescription>
         </CardHeader>
       </Link>
     </Card>
