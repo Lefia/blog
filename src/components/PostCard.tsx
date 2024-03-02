@@ -13,23 +13,24 @@ type PostCardProps = {
   post: Post
 }
 
-const PostCard = (props: PostCardProps) => {
+export const PostCard = (props: PostCardProps) => {
   const { post } = props
+
   return (
     <Card>
-      <MotionDiv layout='preserve-aspect' layoutId={post.slug}>
-        <Img
-          src={post.coverImage}
-          alt={post.title}
-          className='aspect-video object-cover object-top rounded-t-lg'
-        />
-      </MotionDiv>
-      <CardHeader>
-        <CardTitle>
-          <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-        </CardTitle>
-        <CardDescription>{post.description}</CardDescription>
-      </CardHeader>
+      <Link href={`/blog/${post.slug}`}>
+        <MotionDiv layout='preserve-aspect' layoutId={post.slug}>
+          <Img
+            src={post.coverImage ?? '/images/placeholder.jpg'}
+            alt={post.title ?? 'No title'}
+            className='aspect-video object-cover object-center rounded-t-lg'
+          />
+        </MotionDiv>
+        <CardHeader>
+          <CardTitle>{post.title ?? 'No title'}</CardTitle>
+          <CardDescription>{post.description ?? 'No description'}</CardDescription>
+        </CardHeader>
+      </Link>
     </Card>
   )
 }
