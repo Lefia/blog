@@ -6,7 +6,7 @@ import { LuOrbit } from "react-icons/lu"
 
 const Header = () => {
   return (
-    <div className='sticky top-0 z-50 w-full bg-opacity-90 bg-zinc-950'>
+    <div className='sticky top-0 z-50 w-full bg-background/90'>
       <div className='container flex justify-between items-center space-x-4 h-16'>
         <div className='flex items-center gap-8'>
           <Logo />
