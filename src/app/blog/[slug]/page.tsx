@@ -4,21 +4,34 @@ import Img from '@/components/Img'
 import MDX from '@/components/MDX'
 import { MotionDiv } from '@/components/Motion'
 
-export async function generateStaticParams() {
+interface BlogPostProps {
+  params: {
+    slug: string
+  }
+}
+
+export const generateStaticParams = async () => {
   const posts = await getAllPosts()
   return posts.map((post) => ({
     slug: post.slug
   }))
 }
 
-type BlogPostProps = {
-  params: {
-    slug: string
+export const generateMetadata = async ({
+  params
+}: {
+  params: { slug: string }
+}) => {
+  const { slug } = params
+  const post = await getPostBySlug(slug).catch(() => notFound())
+
+  return {
+    title: post.title,
   }
 }
 
-const BlogPostPage = async (props: BlogPostProps) => {
-  const { slug } = props.params
+const BlogPostPage = async ({ params }: BlogPostProps) => {
+  const { slug } = params
   const post = await getPostBySlug(slug).catch(() => notFound())
 
   return (
