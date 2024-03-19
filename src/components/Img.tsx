@@ -1,24 +1,18 @@
 import { getImage } from '@/lib/img'
-import Image from 'next/image'
+import Image, { ImageProps } from 'next/image'
 
-type ImgProps = {
-  src: string,
-  alt: string,
-  className?: string
-}
-
-const Img = async (props: ImgProps) => {
-  const { src, alt, className } = props
-  const { base64, height, width } = await getImage(src)
+const Img = async (props: ImageProps) => {
+  const { src, alt, fill, ...rest } = props
+  const { base64, height, width } = await getImage(src as string)
   return (
     <Image
       src={src}
       alt={alt}
-      height={height}
-      width={width}
+      height={fill ? undefined :  height}
+      width={fill ? undefined :  width}
       placeholder='blur'
       blurDataURL={base64}
-      className={className}
+      {...rest}
     />
   )
 }
