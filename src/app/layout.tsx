@@ -1,17 +1,16 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { inter } from '@/app/font'
 import { ThemeProvider } from './theme-provider'
-import { Inter } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
     absolute: "",
-    default: "Lefia's Blog",
-    template: "%s | Lefia's Blog"
+    default: "Lefia",
+    template: "%s | Lefia"
   },
   description: 'Exploring the realms of learning.'
 }

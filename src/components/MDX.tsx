@@ -8,6 +8,8 @@ import {
 } from '@shikijs/transformers'
 import '@/styles/mdx.scss'
 import Img from '@/components/Img'
+import { ubuntu_mono } from '@/app/font'
+import { cn } from '@/lib/utils'
 
 interface MDXProps {
   source: string
@@ -24,6 +26,11 @@ const MDX = (props: MDXProps) => {
             src={props.src ?? '/images/placeholder.jpg'}
             alt={props.alt ?? 'Image'}
           />
+        ),
+        pre: (props) => (
+          <pre {...props} className={cn(ubuntu_mono.className, props.className)}>
+            {props.children}
+          </pre>
         )
       }}
       options={{
@@ -46,7 +53,7 @@ const MDX = (props: MDXProps) => {
           ]
         }
       }}
-    ></MDXRemote>
+    />
   )
 }
 
