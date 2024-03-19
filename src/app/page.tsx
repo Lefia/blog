@@ -6,26 +6,29 @@ import {
   CarouselPrevious
 } from '@/components/ui/carousel'
 import PostCard from '@/components/PostCard'
-import { getAllPosts } from '@/lib/mdx'
+import { getPosts } from '@/lib/mdx'
+import Link from 'next/link'
 
 const Home = async () => {
   return (
     <>
-      {/* <h1 className='text-2xl md:text-4xl mb-4'>Welcome to my blog</h1> */}
-      <h2 className='text-2xl mb-4'>Latest Post</h2>
-      <PostCarousel />
+      <Link href='/blog'>
+        <h2 className='text-2xl mb-4 inline-block'>Latest Post</h2>
+      </Link>
+      <PostCarousel className='mb-4' />
     </>
   )
 }
 
-const PostCarousel = async () => {
-  const posts = await getAllPosts()
+const PostCarousel = async ({ className }: { className?: string }) => {
+  const posts = await getPosts(2)
   return (
     <Carousel
       opts={{
         align: 'start',
         loop: true
       }}
+      className={className}
     >
       <CarouselPrevious className='hidden md:block'>Previous</CarouselPrevious>
       <CarouselContent>

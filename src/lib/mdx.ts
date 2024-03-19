@@ -3,11 +3,11 @@ import matter from 'gray-matter'
 import path from 'node:path'
 
 export interface Post {
-  slug: string,
-  title: string,
-  description: string,
-  date: string,
-  coverImage: string,
+  slug: string
+  title: string
+  description: string
+  date: string
+  coverImage: string
   content: string
 }
 
@@ -31,9 +31,20 @@ export const getAllPosts = async (): Promise<Post[]> => {
   )
 }
 
+export const getPosts = async (head: number = 2): Promise<Post[]> => {
+  const posts = await getAllPosts()
+  return posts
+    .sort((a, b) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime()
+    })
+    .slice(0, head)
+}
+
 export const getPostBySlug = async (slug: string): Promise<Post> => {
   const postPath = path.join(postDir, `${slug}.mdx`)
-  await fs.access(postPath).catch(() => { throw new Error('Post not found')})
+  await fs.access(postPath).catch(() => {
+    throw new Error('Post not found')
+  })
   const postContent = await fs.readFile(
     path.join(postDir, `${slug}.mdx`),
     'utf-8'
