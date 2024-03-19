@@ -16,7 +16,7 @@ import { cn } from '@/lib/utils'
 const Home = async () => {
   return (
     <>
-      <div className='relative'>
+      <div className='relative overflow-hidden'>
         <Img
           src='/images/hero.jpg'
           alt='hero-image'
