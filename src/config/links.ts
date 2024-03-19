@@ -2,9 +2,10 @@ import { type IconType } from 'react-icons'
 import {
   FaPen,
   FaUser,
-  FaTableColumns,
+  FaBriefcase,
   FaGithub,
-  FaSquareFacebook
+  FaSquareFacebook,
+  FaInstagram,
 } from 'react-icons/fa6'
 
 interface Link {
@@ -27,7 +28,7 @@ const HeaderLinks: Link[] = [
   {
     name: 'Projects',
     url: '/projects',
-    icon: FaTableColumns
+    icon: FaBriefcase
   }
 ]
 
@@ -41,6 +42,11 @@ const FooterLinks: Link[] = [
     name: 'Facebook',
     url: 'https://www.facebook.com/lefia1222/',
     icon: FaSquareFacebook
+  },
+  {
+    name: 'Instagram',
+    url: 'https://www.instagram.com/lefia1222/',
+    icon: FaInstagram
   }
 ]
 
