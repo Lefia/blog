@@ -8,7 +8,7 @@ interface BaseLayoutProps {
 function BaseLayout(props: BaseLayoutProps) {
   const { children, className } = props
   return (
-    <div className={cn(className, 'max-w-5xl mx-auto px-[2rem] py-4')}>
+    <div className={cn(className, 'w-full md:max-w-5xl mx-auto px-[2rem] py-4')}>
       {children}
     </div>
   )
