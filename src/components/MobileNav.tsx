@@ -29,7 +29,7 @@ const MobileNav = (props: MobileNavProps) => {
         <DropdownMenuContent align='end' className='md:hidden'>
           <nav>
             {HeaderLinks.map((link, index) => (
-              <DropdownMenuItem inset key={index}>
+              <DropdownMenuItem inset key={index} asChild>
                 <Link href={link.url} passHref>
                   {link.name}
                 </Link>

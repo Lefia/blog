@@ -5,7 +5,7 @@ import Link from "next/link"
 
 const Header = () => {
   return (
-    <div className='sticky top-0 z-50 w-full bg-background/90'>
+    <div className='sticky top-0 z-50 w-full bg-background/80'>
       <div className='max-w-7xl mx-auto px-4 flex justify-between items-center h-16'>
         <div className='flex items-center gap-8'>
           <Logo />
