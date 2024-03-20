@@ -2,7 +2,7 @@ import { getAllPosts, getPostBySlug } from '@/lib/mdx'
 import { notFound } from 'next/navigation'
 import Img from '@/components/Img'
 import MDX from '@/components/MDX'
-import { MotionDiv } from '@/components/Motion'
+import BaseLayout from '@/components/BaseLayout'
 
 interface BlogPostProps {
   params: {
@@ -36,16 +36,17 @@ const BlogPostPage = async ({ params }: BlogPostProps) => {
 
   return (
     <>
-      <MotionDiv layout='preserve-aspect' layoutId={post.slug}>
+     
+      <BaseLayout>
         <Img
           src={post.coverImage}
           alt={post.title}
-          className='aspect-video object-cover object-top rounded-lg'
+          className='aspect-[4/1] object-cover object-center rounded-lg'
         />
-      </MotionDiv>
-      <div className='prose dark:prose-invert mt-8'>
-        <MDX source={post.content} />
-      </div>
+        <div className='prose dark:prose-invert mt-8'>
+          <MDX source={post.content} />
+        </div>
+      </BaseLayout>
     </>
   )
 }

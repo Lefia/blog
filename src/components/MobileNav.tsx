@@ -30,7 +30,7 @@ const MobileNav = (props: MobileNavProps) => {
           <nav>
             {HeaderLinks.map((link, index) => (
               <DropdownMenuItem inset key={index} asChild>
-                <Link href={link.url} passHref>
+                <Link href={link.url} passHref className='text-lg'>
                   {link.name}
                 </Link>
               </DropdownMenuItem>
