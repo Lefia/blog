@@ -2,7 +2,7 @@
 
 import { HeaderLinks } from '@/config/links'
 import Link from 'next/link'
-import { cn }  from '@/lib/utils'
+import { cn } from '@/lib/utils'
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -22,17 +22,15 @@ const Nav = (props: NavProps) => {
       <NavigationMenuList>
         {HeaderLinks.map((link, index) => (
           <NavigationMenuItem key={index}>
-            <Link href={link.url} legacyBehavior passHref>
-              <NavigationMenuLink 
-                className={cn(
-                  navigationMenuTriggerStyle(),
-                  'flex gap-2'
-                )}
-              >
+            <NavigationMenuLink
+              asChild
+              className={navigationMenuTriggerStyle()}
+            >
+              <Link href={link.url} className='flex gap-2'>
                 <link.icon />
                 <span className='text-base'>{link.name}</span>
-              </NavigationMenuLink>
-            </Link>
+              </Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
       </NavigationMenuList>
