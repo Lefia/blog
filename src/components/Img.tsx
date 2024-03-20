@@ -8,8 +8,8 @@ const Img = async (props: ImageProps) => {
     <Image
       src={src}
       alt={alt}
-      height={fill ? undefined :  height}
-      width={fill ? undefined :  width}
+      width={width}
+      height={height}
       placeholder='blur'
       blurDataURL={base64}
       {...rest}
